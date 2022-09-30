@@ -1,11 +1,13 @@
 import type { NextFunction, Request, Response } from 'express';
 import axios from 'axios';
+import { env } from 'process'
+
 import { CustomError } from '../errors/CustomError';
 
 export async function jwtAuth(req: Request, res: Response, next: NextFunction) {
 	const accessToken = req.headers.authorization!;
 
-	const response = await axios.get('https://xestorapiauth-production.up.railway.app/auth/validate', {
+	const response = await axios.get(`${env.AUTH_BASE_URL}/auth/validate`, {
 		headers: {
 			authorization: accessToken,
 		},
