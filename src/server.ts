@@ -9,7 +9,7 @@ import { router } from './routes';
 
 dotenv.config()
 
-const port = env.PORT || env.API_PORT!;
+const port = env.PORT || 3000;
 
 const app = express();
 
